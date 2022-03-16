@@ -20,7 +20,6 @@ db.once('open', function() {
   console.log("Database test connected")
 })
 
-
 // scheema
 const todoSchema = new mongoose.Schema({
   text: { type: String, required: true } 
