@@ -55,6 +55,19 @@ app.delete('/todos/:id', async (request, response) => {
   else response.status(404).end()
 })
 
+app.put('/todos/:id', async (request, response) => {
+  const { text } = request.body
+  const updateTodo = await Todo.findByIdAndUpdate((request.params.id), {
+    text: text
+  })
+  
+  if (updateTodo) {
+    response.json(updateTodo)
+    response.status(200).end()
+  } else {
+    response.status(404).end()
+  }
+})
 
 // todos-route
 /*
